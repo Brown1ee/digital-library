@@ -9,6 +9,7 @@ import ShelfWithReview from "./components/ShelfWithReview";
 import books from "./books.json";
 import Menu from "./components/Menu";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useStickyState } from "./components/helpers";
 
 export const BooksLibraryContext = createContext({});
 
@@ -21,7 +22,8 @@ const App = () => {
   const [bookList, setBookList] = useState(books);
   const [shelfs, setShelfs] = useState([]);
   const [modalBookShow, setModalBookShow] = useState(false);
-  const [theme, setTheme] = useState("light");
+
+  const [theme, setTheme] = useStickyState("light", "theme");
 
   const toggleTheme = () => {
     if (theme === "light") {
